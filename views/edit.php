@@ -1,7 +1,7 @@
 <?php
 require_once "../init.php";
 require_once '../template/header.php';
-require_once '../config.php';
+require_once '../db/DBconfig.php';
 $products = new Item();
 $product = $products->editProduct($_GET['id']);
 $id = $product['id'];
@@ -14,7 +14,7 @@ $price = $product['price'];?>
       <div class="col-sm-10 col-lg-6 offset-sm-1 offset-lg-3">
         <div class="form-bg">
           <h2>Edit Product</h2>
-          <form method="POST" action="/Product/app/productProcess.php?send=update&id=<?= $id ?>">
+          <form method="POST" action="/Product/app/productProcess.php?send=update&id=<?= $id ?>" enctype="multipart/form-data">
             <div class="form-group">
               <label>Title: </label>
               <input class="form-control" name="name" type="text" value="<?= $title ?>" required>

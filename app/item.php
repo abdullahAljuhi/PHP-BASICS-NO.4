@@ -41,10 +41,10 @@ class Item extends Dbhndel {
     return $result;
   }
 
-  public function updateProduct($id, $title, $body, $price) {
-    $sql = "UPDATE items SET name = ?, description = ?, price = ? WHERE id = ?";
+  public function updateProduct($id, $title, $body, $price,$img) {
+    $sql = "UPDATE items SET name = ?, description = ?, price = ?, img = ? WHERE id = ?";
     $stmt = self::connect()->prepare($sql);
-    $stmt->execute([$title, $body, $price, $id]);
+    $stmt->execute([$title, $body, $price,$img,$id]);
   }
 
   public function delProduct($id) {
